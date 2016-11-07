@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - docker pull nsidhaye/msphpsql .
+  - docker pull nsidhaye/msphpsql
   - docker run -d -p 127.0.0.1:80:80 
   - docker ps -a
 
