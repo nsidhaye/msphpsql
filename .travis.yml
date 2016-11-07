@@ -10,14 +10,15 @@ services:
 
 before_install:
   - docker pull nsidhaye/msphpsql 
-
+  - docker run -td -p 4080:80 nsidhaye/msphpsql > "${container_id}"
   
 script:
-  - docker run -d -t -p 4080:80 nsidhaye/msphpsql apache2ctl start > "${container_id}"
+  
   - phantomjs testrunner.js 
   - phantomjs testPhantom.js
   - docker ps -a  
   - docker stop "$(cat ${container_id})"
+  - docker rm "$(cat ${container_id})"
   
 notifications:
   email: false
