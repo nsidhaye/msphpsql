@@ -1,0 +1,15 @@
+sudo: false
+
+language: php
+
+services:
+  - docker
+
+before_install:
+  - docker build -t nsidhaye/msphpsql .
+  - docker run -d -p 127.0.0.1:80:80 
+  - docker ps -a
+
+script:
+  - phantomjs testrunner.js 
+  - phantomjs testPhantom.js

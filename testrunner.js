@@ -1,0 +1,7 @@
+console.log('Loading a web page');
+var page = require('webpage').create();
+var url = 'http://127.0.0.1:80/testsql.php';
+page.open(url, function (status) {
+  //Page is loaded!
+  phantom.exit();
+});
