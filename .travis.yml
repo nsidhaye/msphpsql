@@ -13,11 +13,12 @@ before_install:
   - docker run -td -p 4080:80 nsidhaye/msphpsql > "${container_id}"
   
 script:
-  
-  - phantomjs testrunner.js 
   - phantomjs testPhantom.js
+  - phantomjs testrunner.js 
+  - phantomjs phpinfo.js 
   - docker ps -a  
   - docker stop "$(cat ${container_id})"
+  - docker ps -a  
   - docker rm "$(cat ${container_id})"
   
 notifications:
