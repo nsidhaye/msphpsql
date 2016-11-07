@@ -5,3 +5,8 @@ page.open(url, function (status) {
   //Page is loaded!
   phantom.exit();
 });
+
+page.onLoadFinished = function() {
+        console.log("page load finished");
+		console.log("page.content" + page.content);
+    };
