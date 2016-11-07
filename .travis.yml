@@ -17,6 +17,9 @@ script:
   - phantomjs testrunner.js 
   - phantomjs phpinfo.js 
   - docker ps -a  
+ # 
+ # if we want to run other program then docker exec -it [container-id] bash
+ #
   - docker stop "$(cat ${container_id})"
   - docker ps -a  
   - docker rm "$(cat ${container_id})"
